@@ -4,7 +4,7 @@ let questions = [
   {
     id: 1,
     question: "Κατά γενική ομολογία θεωρείστε",
-    url: "https://antikatapliktika.files.wordpress.com/2019/03/25755_383209023430_269916953430_3720656_2301133_n-e1295972280792-1.jpeg",
+    url: "../img/img_1.jpeg",
     options: [
       "1.  Mοιραία",
       "2.  Χαριτωμένη",
@@ -16,7 +16,7 @@ let questions = [
   {
     id: 2,
     question: "Κανείς δεν αντιστέκετε",
-    url: "https://www.enikos.gr/wp-content/uploads/2021/08/791467_6ae1fc1de3-9573f84524146086.jpg",
+    url: "../img/img_2.jpeg",
     options: [
       "1. Στην γλαφυρότητα σας",
       "2. Στα νάζια σάς",
@@ -28,7 +28,7 @@ let questions = [
   {
     id: 3,
     question: "Είστε καλή",
-    url: "https://www.patrisnews.com/wp-content/uploads/2016/07/tz7.jpg",
+    url: "../img/img_3.jpeg",
     options: [
       "1. Στίς πόζες",
       "2. Στο τραγούδι",
@@ -40,7 +40,7 @@ let questions = [
   {
     id: 4,
     question: "Οί κρυφές σας χάρες είναι",
-    url: "https://i1.prth.gr/images/1168x656/files/2022-09-20/martha_karagiannh57837.jpg",
+    url: "../img/img_4.jpeg",
     options: [
       "1. Προσήνια",
       "2. Ευστροφία",
@@ -52,7 +52,7 @@ let questions = [
   {
     id: 5,
     question: "Αγαπημένη ενασχόληση",
-    url: "https://www.filmy.gr/wp-content/uploads/2019/11/Alice-in-the-Navy-12.jpg",
+    url: "../img/img_5.jpeg",
     options: [
       "1. Χειροποίητη δημιουργία (πχ κοσμήματα)",
       "2. Πεζοπορία, ορειβασία",
@@ -74,9 +74,10 @@ let answerOptionsHtmlTemplate = (q1, q2, q3, q4, q5) => `
   </div>
 `;
 
-let questionImageHtmlTemplate = url => `
+let questionImageHtmlTemplate = (url) => `
     <img src="${url}" alt="img" style="width: 600px; height: 400px; object-fit: contain;">
 `;
+
 
 // we start from index 0 and we call the above functions
 let questionIndex = 0;
@@ -85,7 +86,7 @@ let questionIndex = 0;
 let answers = [0, 0, 0, 0, 0];
 
 // We render the first index manually, in order to kickstart app
-renderByIndex(0);
+renderByIndex(0)
 
 // If all or the most questions from the array are clicked , aka if we played the quiz this this function will show
 // the result
@@ -129,14 +130,8 @@ function renderByIndex(index) {
   questionElement.innerText = questionData.question;
 
   let optionsElement = document.getElementById("options-wrapper");
-  optionsElement.innerHTML = answerOptionsHtmlTemplate(
-    questionData.options[0],
-    questionData.options[1],
-    questionData.options[2],
-    questionData.options[3],
-    questionData.options[4]
-  );
+  optionsElement.innerHTML = answerOptionsHtmlTemplate(questionData.options[0], questionData.options[1], questionData.options[2], questionData.options[3], questionData.options[4])
 
   const question = document.getElementById("page-index");
-  question.innerText = index + 1;
+  question.innerText = (index + 1);
 }
